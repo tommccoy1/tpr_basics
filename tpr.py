@@ -174,6 +174,11 @@ if __name__ == "__main__":
     # Converts filler/role pairs into vector representations
     # There is a vocab of 7 fillers and 5 roles, and their embedding
     # sizes match their vocab size
+    # As it stands, the filler and role embeddings are both randomly initialized
+    # (and can be trained via gradient descent). However, it would be easy to modify
+    # this to have one or both of them be fixed embeddings that are externally specified.
+    # E.g., if the fillers are phonemes, the embedding for each phoneme could be
+    # a feature vector for it.
     tpe = TensorProductEncoder(n_fillers=7, n_roles=5, filler_dim=7, role_dim=5)
 
     # Suppose we want to encode a batch with 2 sequences: 2,4,4,3 and 3,6
